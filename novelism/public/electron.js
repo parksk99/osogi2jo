@@ -8,10 +8,9 @@ var baseUrl = "http://localhost:3000";
 var mainWindow;
 function createMainWindow() {
     mainWindow = new electron_1.BrowserWindow({
-        width: 1080,
-        height: 800,
+        minWidth: 1080,
+        minHeight: 800,
         frame: false,
-        resizable: false,
         webPreferences: {
             nodeIntegration: true,
             webviewTag: true

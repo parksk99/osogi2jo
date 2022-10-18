@@ -1,3 +1,9 @@
+import LeftBar from "../components/Bars/LeftBar";
+
 export default function Layout() {
-  return <></>;
+  return (
+    <div>
+      <LeftBar />
+    </div>
+  );
 }

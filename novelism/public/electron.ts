@@ -10,10 +10,9 @@ let mainWindow: BrowserWindow | null;
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 1080,
-    height: 800,
+    minWidth: 1080,
+    minHeight: 600,
     frame: false,
-    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
