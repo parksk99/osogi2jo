@@ -1,0 +1,42 @@
+### server 관련 gitignore
+server/opensource/HELP.md
+server/opensource/.gradle
+server/opensource/build/
+!server/opensource/gradle/wrapper/gradle-wrapper.jar
+!server/opensource/src/main/**/build/
+!server/opensource/src/test/**/build/
+### IntelliJ IDEA ###
+.idea
+server/opensource/.idea
+server/opensource/**/*.iws
+server/opensource/**/*.iml
+server/opensource/**/*.ipr
+server/opensource/out/
+!server/opensource/src/main/**/out/
+!server/opensource/src/test/**/out/
+
+
+##클라이언트관련
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+novelism/node_modules
+novelism/.pnp
+.pnp.js
+
+# testing
+novelism/coverage
+
+# production
+novelism/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
