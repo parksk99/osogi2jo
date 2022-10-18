@@ -1,0 +1,16 @@
+### server 관련 gitignore
+server/opensource/HELP.md
+server/opensource/.gradle
+server/opensource/build/
+!server/opensource/gradle/wrapper/gradle-wrapper.jar
+!server/opensource/src/main/**/build/
+!server/opensource/src/test/**/build/
+### IntelliJ IDEA ###
+.idea
+server/opensource/.idea
+server/opensource/**/*.iws
+server/opensource/**/*.iml
+server/opensource/**/*.ipr
+server/opensource/out/
+!server/opensource/src/main/**/out/
+!server/opensource/src/test/**/out/
