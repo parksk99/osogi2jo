@@ -20,7 +20,7 @@ public class CrawlingService {
 
     public String process() {
 //        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ojyse\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         //크롬 드라이버 셋팅 (드라이버 설치한 경로 입력)
 
 //        driver = new ChromeDriver();
