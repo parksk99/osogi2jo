@@ -53,13 +53,10 @@ public class CrawlingService {
         //드라이버가 실행된 뒤 최대 10초 기다리겠다.
 
         driver.get(url);    //브라우저에서 url로 이동한다.
-//        Thread.sleep(1000); //브라우저 로딩될때까지 잠시 기다린다.
 
         List<WebElement> elements = driver.findElements(By.ByTagName.tagName("p"));
         for (WebElement element : elements) {
-//            System.out.println("----------------------------");
             text = text + element.getText() + '\n';
-//            System.out.println(element.getText());	//⭐
         }
 
         return list;
