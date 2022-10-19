@@ -5,6 +5,7 @@ server/opensource/build/
 !server/opensource/gradle/wrapper/gradle-wrapper.jar
 !server/opensource/src/main/**/build/
 !server/opensource/src/test/**/build/
+server/opensource/src/main/resources/application.yml
 ### IntelliJ IDEA ###
 .idea
 server/opensource/.idea
