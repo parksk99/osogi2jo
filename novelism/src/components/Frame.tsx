@@ -65,6 +65,7 @@ const Container = styled.div`
 
   & span {
     transition: all 0.15s;
+    text-shadow: 2px 2px 4px #000000c2;
   }
 
   & span:hover {

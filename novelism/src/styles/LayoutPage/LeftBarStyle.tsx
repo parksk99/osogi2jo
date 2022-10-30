@@ -11,6 +11,9 @@ export const Container = styled.div`
   padding: 30px;
   gap: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 `;
 
 export const TitleBox = styled.div`

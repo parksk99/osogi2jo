@@ -10,6 +10,7 @@ export const Container = styled.div<{ color: string; collapse: boolean }>`
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
   position: absolute;
+  z-index: 100;
   left: ${(props) => (props.collapse ? "1.5vw" : "50%")};
   transform: ${(props) => (props.collapse ? "" : "translateX(-50%)")};
   bottom: 20px;
@@ -42,7 +43,7 @@ export const NoPlayBox = styled.div`
 
   & > .title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     cursor: default;
   }
 
