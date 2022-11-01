@@ -45,7 +45,7 @@ public class YouTubeSearchService implements YouTubeProvider {
 
     private static String getInputQuery() throws IOException {
 
-        String inputQuery = "새벽 감성 팝송";
+        String inputQuery = "즐거운";
 
         if (inputQuery.length() < 1) {
             // If nothing is entered, defaults to "YouTube Developers Live."
@@ -94,9 +94,9 @@ public class YouTubeSearchService implements YouTubeProvider {
 
             YouTube.Search.List search = youtube.search().list(Collections.singletonList("id,snippet"));
 
+            String q = "playlist " + getInputQuery();
             search.setKey(apiKey);
-//            search.setChannelId(mChannelId);
-            search.setQ("아이유");
+            search.setQ("playlist 사랑");
             search.setType(Collections.singletonList("video"));
             search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
