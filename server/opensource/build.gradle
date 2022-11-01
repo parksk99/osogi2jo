@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.batch:spring-batch-integration'
 	implementation 'org.seleniumhq.selenium:selenium-java:4.1.2'
 
 	implementation 'com.google.api-client:google-api-client:2.0.0'
