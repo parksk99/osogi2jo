@@ -5,9 +5,14 @@ from word import Word
 keyword_detector = Word
 emotion_detector = Emotion
 
+#파일에서 읽기
 novel_path = 'novel.txt'
+with open (novel_path,'r',encoding='utf-8') as novel:
+    texts = []
+    for line in novel:
+        texts.append(line)
 
-keywords,rank = keyword_detector.get_word_from_novel(novel_path)  # 소설에서 단어 읽어들이기
+keywords,rank = keyword_detector.get_word_from_novel(texts)  # 소설에서 단어 읽어들이기
 
 emotional_word = []
 emotion_sum = 0
