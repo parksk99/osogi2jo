@@ -3,13 +3,13 @@ import time
 from krwordrank.hangle import normalize
  
 class Word():
-    def get_word_from_novel(self, texts):
-        min_count = 2   # 단어의 최소 출현 빈도수 (그래프 생성 시)
+    def get_word_from_novel(self, texts, min):
+        min_count = min   # 단어의 최소 출현 빈도수 (그래프 생성 시)
         max_length = 10 # 단어의 최대 길이
         verbose =True
         wordrank_extractor = KRWordRank(min_count, max_length , verbose)
         
-        beta = 0.5    # PageRank의 decaying factor beta
+        beta = 0.1    # PageRank의 decaying factor beta
         max_iter = 10
 
         # with open(novel_path, 'r',encoding='UTF8') as f:
