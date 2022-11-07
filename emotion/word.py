@@ -3,7 +3,7 @@ import time
 from krwordrank.hangle import normalize
  
 class Word():
-    def get_word_from_novel(texts):
+    def get_word_from_novel(self, texts):
         min_count = 2   # 단어의 최소 출현 빈도수 (그래프 생성 시)
         max_length = 10 # 단어의 최대 길이
         verbose =True

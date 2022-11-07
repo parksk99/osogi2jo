@@ -2,8 +2,8 @@ from emotion import Emotion
 import time
 from word import Word
 
-keyword_detector = Word
-emotion_detector = Emotion
+keyword_detector = Word()
+emotion_detector = Emotion()
 
 #파일에서 읽기
 novel_path = 'novel.txt'
