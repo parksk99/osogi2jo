@@ -16,11 +16,10 @@ export const Container = styled.div`
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
-      width: 10px;
+      width: 5px;
     }
     &::-webkit-scrollbar-thumb {
       background-color: #295b77;
-      border-radius: 10px;
     }
     &::-webkit-scrollbar-track {
       background-color: #00ff0000;

@@ -1,4 +1,9 @@
-import { Container, NoPlayBox } from "../../styles/LayoutPage/PlayBarStyle";
+import {
+  Container,
+  NoPlayBox,
+  CdBox,
+  MarqueeBox,
+} from "../../styles/LayoutPage/PlayBarStyle";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +26,16 @@ export default function PlayBar() {
       {played ? (
         <></>
       ) : collapse ? (
-        <></>
+        <CdBox>
+          <div className="cd-player" />
+          <MarqueeBox>
+            <span>재생중인 음악이 없네요.</span>
+            <span>재생중인 음악이 없네요.</span>
+            <span>재생중인 음악이 없네요.</span>
+            <span>재생중인 음악이 없네요.</span>
+            <span>재생중인 음악이 없네요.</span>
+          </MarqueeBox>
+        </CdBox>
       ) : (
         <NoPlayBox>
           <span className="title">현재 재생중인 음악이 없습니다!</span>

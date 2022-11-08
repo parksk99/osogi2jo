@@ -53,3 +53,56 @@ export const NoPlayBox = styled.div`
     cursor: default;
   }
 `;
+
+export const CdBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  & > .cd-player {
+    width: 60%;
+    aspect-ratio: auto 1/1;
+    border-radius: 100%;
+    background-color: white;
+    font-weight: 300;
+    font-size: 16px;
+  }
+`;
+
+export const MarqueeBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.3s;
+  color: white;
+
+  @keyframes textLoop {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  &:hover {
+    color: #000;
+  }
+  &:hover & > span {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+  & > span {
+    animation: textLoop 10s linear infinite;
+    padding-right: 1.4881vw;
+    cursor: default;
+  }
+`;
