@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public class ResponseDto {
     private String result;
 
+//    @Builder
 //    public static class Content{
-//        private String result;
+//        private ArrayList<Multimap<String, Double>> ratio;
 //    }
 }
