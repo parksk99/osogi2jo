@@ -3,7 +3,6 @@ package com.opensource.opensource.utils;
 import com.opensource.opensource.dto.RequestDto;
 import com.opensource.opensource.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 public class RequestTextAnalaysis{
     private final RestTemplate restTemplate;
-    public ResponseDto useResTemplate(String novel) throws JSONException {
+    public ResponseDto useResTemplate(String novel) {
         URI uri = UriComponentsBuilder
 //                .fromUriString("http://localhost:8000")
                 .fromUriString("http://3.36.166.73")
