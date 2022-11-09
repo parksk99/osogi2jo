@@ -19,8 +19,8 @@ public class RequestTextAnalaysis{
     private final RestTemplate restTemplate;
     public ResponseDto useResTemplate(String novel) throws JSONException {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:8000")
-//                .fromUriString("http://3.36.166.73")
+//                .fromUriString("http://localhost:8000")
+                .fromUriString("http://3.36.166.73")
                 .path("/textAnalysis/result").encode().build().toUri();
 
         RequestDto req = new RequestDto();
