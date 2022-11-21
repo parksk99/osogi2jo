@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div<{ color: string; collapse: boolean }>`
-  width: ${(props) => (props.collapse ? "15vw" : "96vw")};
-  height: ${(props) => (props.collapse ? "25vh" : "10vh")};
+  width: 96vw;
+  height: 10vh;
   border-radius: 10px;
   background: ${(props) => props.color};
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -11,15 +11,14 @@ export const Container = styled.div<{ color: string; collapse: boolean }>`
   border-radius: 10px;
   position: absolute;
   z-index: 100;
-  left: ${(props) => (props.collapse ? "1.5vw" : "50%")};
-  transform: ${(props) => (props.collapse ? "" : "translateX(-50%)")};
-  bottom: 20px;
-  transition: all 0.8s;
+  left: 1.5vw;
+  bottom: ${(props) => (props.collapse ? "-10vh" : "20px")};
+  transition: all 0.25s;
 
   & > .collapse-btn {
     position: absolute;
     left: 0.5vw;
-    bottom: ${(props) => (props.collapse ? "25.5vh" : "10.5vh")};
+    bottom: 12vh;
     background: none;
     border: none;
     font-size: 24px;

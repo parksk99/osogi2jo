@@ -23,7 +23,7 @@ export default function PlayBar() {
 
   return (
     <Container color={tmpColor} collapse={collapse}>
-      {played ? (
+      {/* {played ? (
         <></>
       ) : collapse ? (
         <CdBox>
@@ -43,7 +43,13 @@ export default function PlayBar() {
             Novelism에서 웹 소설을 감상하면, 배경음악은 알아서 켜드릴게요!
           </span>
         </NoPlayBox>
-      )}
+      )} */}
+      <NoPlayBox>
+        <span className="title">현재 재생중인 음악이 없습니다!</span>
+        <span className="subtitle">
+          Novelism에서 웹 소설을 감상하면, 배경음악은 알아서 켜드릴게요!
+        </span>
+      </NoPlayBox>
       <button
         className="collapse-btn"
         onClick={() => setCollapse((prev) => !prev)}
