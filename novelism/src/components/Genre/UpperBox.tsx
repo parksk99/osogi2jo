@@ -5,8 +5,24 @@ import {
 import Result from "./Result";
 import { error } from "../../resources/result";
 import { NoArtist } from "./SelectedArtistItem";
+import { useState, useEffect } from "react";
+import MyPeekArtists from "./MyPeekArtists";
 
 export default function UpperBox() {
+  const [myPeek, setMyPeek] = useState<Array<string>>();
+
+  const getMyPeek = () => {
+    const jsonData = localStorage.getItem("music-preference");
+    if (jsonData !== null) {
+      const prevPickers: Array<string> = JSON.parse(jsonData);
+      setMyPeek(prevPickers);
+    }
+  };
+
+  useEffect(() => {
+    getMyPeek();
+  }, []);
+
   return (
     <UpperBoxContainer>
       <span className="title">해당 기기에서 분석된 선호 장르예요.</span>
@@ -18,7 +34,7 @@ export default function UpperBox() {
           <Result item={error} />
         </div>
         <div className="my-artists">
-          <NoArtist />
+          {myPeek ? <MyPeekArtists peeks={myPeek} /> : <NoArtist />}
         </div>
       </UpperContentBox>
     </UpperBoxContainer>

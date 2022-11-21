@@ -61,11 +61,6 @@ export const UpperContentBox = styled.div`
   & > .my-artists {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
   }
 `;
 
@@ -170,6 +165,33 @@ export const BottomBoxContainer = styled.div`
 
     &:active {
       transform: scale(0.98);
+    }
+  }
+`;
+
+export const ItemLayout = styled.div`
+  width: 55%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+
+  & > .img-box {
+    width: 16%;
+    min-width: 65px;
+    aspect-ratio: auto 1/1;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `;

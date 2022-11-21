@@ -76,6 +76,12 @@ const BTS: Artist = {
   genre: "dance",
 };
 
+const Highlight: Artist = {
+  img: "https://i.pinimg.com/564x/4f/2b/fc/4f2bfc4ccde77fe610c92623fdeb275f.jpg",
+  name: "하이라이트",
+  genre: "dance",
+};
+
 const Dydu: Artist = {
   img: "https://images.chosun.com/resizer/mnNvSTT4Xq4sfUWB6OQioWUHU0Y=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/GRDQID73H3QJC4XVGJBGMU5T5I.jpg",
   name: "다이나믹 듀오",
@@ -378,7 +384,8 @@ export const Dance: Array<Artist> = [
   Newjeans,
   RedVelvet,
   Seventeen,
-  NCT,
+  // NCT,
+  Highlight,
   BTS,
 ];
 
@@ -418,3 +425,16 @@ export const Pop: Array<Artist> = [
 ];
 
 export const Piano = [Hisaishi, Yiruma, Okawari, Kimkwangmin, George, Davit];
+
+export const AllGenres = [
+  Balad,
+  Dance,
+  Hiphop,
+  Rnb,
+  Indi,
+  Rock,
+  Pork,
+  Trot,
+  Pop,
+  Piano,
+];
