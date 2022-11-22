@@ -1,8 +1,7 @@
-package com.opensource.opensource.utils;
+package com.opensource.opensource.service;
 
 import com.opensource.opensource.dto.RequestDto;
 import com.opensource.opensource.dto.VideoInfoDto;
-import com.opensource.opensource.service.YouTubeSearchService;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
