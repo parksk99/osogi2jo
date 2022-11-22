@@ -19,6 +19,8 @@ class Word():
     
         texts = [normalize(text,english=False , number=True) for text in texts ]
         start= time.time()
+        if(len(texts) < 10):
+            return None, None
         keywords, rank, graph = wordrank_extractor.extract(texts, beta, max_iter)
         end = time.time()
         print('소요 시간 : ',end-start)
