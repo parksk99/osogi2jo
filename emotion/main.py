@@ -26,12 +26,12 @@ while(True):
         break
 
     unit_length = int(text_reader.novel_len/5)
+    emotional_word = []
     for i in range(0, 5):
         tmp = texts[unit_length*i : unit_length*(i+1)]
         keywords,rank = keyword_detector.get_word_from_novel(tmp, 2)  # 소설에서 단어 읽어들이기
         if(keywords == None):
             continue
-        emotional_word = []
         emotion_sum = 0
 
         for wordname, r in sorted(keywords.items(), key=lambda x:x[1], reverse=True)[:30]:
@@ -39,7 +39,7 @@ while(True):
             word, emotion = emotion_detector.data_list(wordname =  wordname) # 읽어들인 단어의 감정 분석
             if emotion != 'None':
                 emotion_value = abs(r*int(emotion))
-                emotional_word.append((wordname,emotion_value,(text_reader.readsentence/text_reader.novel_len)*100))
+                emotional_word.append((wordname,emotion_value,(text_reader.readsentence/text_reader.novel_len)*100,i))
                 emotion_sum += emotion_value
                # result_array.append((wordname,(text_reader.readsentence/text_reader.novel_len)*100))
 
@@ -51,12 +51,13 @@ while(True):
                 word, emotion = emotion_detector.data_list(wordname =  wordname) # 읽어들인 단어의 감정 분석
                 if emotion != 'None':
                     emotion_value = abs(r*int(emotion))
-                    emotional_word.append((wordname,emotion_value,(text_reader.readsentence/text_reader.novel_len)*100))
+                    emotional_word.append((wordname,emotion_value,(text_reader.readsentence/text_reader.novel_len)*100,i))
                     emotion_sum += emotion_value
                #     result_array.append((wordname,(text_reader.readsentence/text_reader.novel_len)*100))
-        if(len(emotional_word)!=0):
-            max_word = max(emotional_word, key = lambda x : x[1])
-            result_array.append((max_word[0],max_word[2]))
+    if(len(emotional_word)!=0):
+        max_word = max(emotional_word, key = lambda x : x[1])
+            # result_array.append((max_word[0],max_word[2]))
+        result_array.append((max_word))
 
     
 
