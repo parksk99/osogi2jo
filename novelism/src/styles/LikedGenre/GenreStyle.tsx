@@ -83,7 +83,7 @@ export const ResultBox = styled.div`
     & > img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: scale-down;
     }
   }
 
@@ -95,6 +95,11 @@ export const ResultBox = styled.div`
     white-space: pre-line;
     word-break: keep-all;
     color: #141414;
+
+    & > .num {
+      font-size: 12px;
+      font-weight: 400;
+    }
 
     & > .title {
       font-size: 18px;
@@ -108,7 +113,16 @@ export const ResultBox = styled.div`
 
     & > .content {
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+
+    & > .ratio {
+      list-style-type: none;
+      padding: 0;
+      margin: 10px 0px 0px 0px;
+      font-size: 12px;
+      font-weight: 400;
     }
   }
 `;

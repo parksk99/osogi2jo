@@ -7,21 +7,49 @@ import { error } from "../../resources/result";
 import { NoArtist } from "./SelectedArtistItem";
 import { useState, useEffect } from "react";
 import MyPeekArtists from "./MyPeekArtists";
+import { Artist, AllGenres } from "../../resources/artists";
+import TasteBox from "./TasteBox";
+import { useRecoilState } from "recoil";
+import { recoilRenderState } from "../../states/recoilRenderState";
 
 export default function UpperBox() {
-  const [myPeek, setMyPeek] = useState<Array<string>>();
+  const [renderState, setRenderState] = useRecoilState(recoilRenderState);
+  const [myPeek, setMyPeek] = useState<Array<string>>([]);
+  const [items, setItems] = useState<Array<Artist>>([]);
 
   const getMyPeek = () => {
     const jsonData = localStorage.getItem("music-preference");
     if (jsonData !== null) {
       const prevPickers: Array<string> = JSON.parse(jsonData);
       setMyPeek(prevPickers);
+      setRenderState(prevPickers.length);
     }
+  };
+
+  const setPeekImages = () => {
+    const myPeekArtist = AllGenres.map((genre) =>
+      genre.filter((artist, index) => myPeek.includes(artist.name))
+    );
+    let myPeekArr: Array<Artist> = [];
+    myPeekArtist.map((peek) =>
+      peek.length > 0 ? myPeekArr.push(...peek) : null
+    );
+    setItems(myPeekArr);
   };
 
   useEffect(() => {
     getMyPeek();
   }, []);
+
+  useEffect(() => {
+    if (myPeek.length > 0) {
+      setPeekImages();
+    }
+  }, [myPeek]);
+
+  useEffect(() => {
+    getMyPeek();
+  }, [renderState]);
 
   return (
     <UpperBoxContainer>
@@ -31,10 +59,18 @@ export default function UpperBox() {
       </span>
       <UpperContentBox>
         <div className="result-box">
-          <Result item={error} />
+          {myPeek && myPeek.length > 0 && renderState > 0 ? (
+            <TasteBox peeks={items} />
+          ) : (
+            <Result item={error} />
+          )}
         </div>
         <div className="my-artists">
-          {myPeek ? <MyPeekArtists peeks={myPeek} /> : <NoArtist />}
+          {myPeek && myPeek.length > 0 && renderState > 0 ? (
+            <MyPeekArtists peeks={items} />
+          ) : (
+            <NoArtist />
+          )}
         </div>
       </UpperContentBox>
     </UpperBoxContainer>

@@ -2,9 +2,8 @@ import guitar from "../../resources/Images/guitar.svg";
 import error from "../../resources/Images/404.svg";
 import piano from "../../resources/Images/piano.svg";
 import idol from "../../resources/Images/idol.svg";
-import { useState, useEffect, useRef } from "react";
 import { ResultBox } from "../../styles/LikedGenre/GenreStyle";
-import { ResultImg, result } from "../../resources/result";
+import { result } from "../../resources/result";
 
 interface resultProps {
   item: result;

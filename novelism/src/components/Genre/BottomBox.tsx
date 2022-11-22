@@ -15,8 +15,11 @@ import {
 import { useState, useEffect } from "react";
 import ArtistItem from "./ArtistItem";
 import Notice from "./Notice";
+import { useRecoilState } from "recoil";
+import { recoilRenderState } from "../../states/recoilRenderState";
 
 export default function BottomBox() {
+  const [renderState, setRenderState] = useRecoilState(recoilRenderState);
   const [artists, setArtists] = useState<Array<Artist>>();
   const [pickers, setPickers] = useState<Array<string>>([]);
   const [overPickers, setOverPickers] = useState<boolean>(false);
@@ -73,6 +76,7 @@ export default function BottomBox() {
         setNoticeContent("알 수 없는 이유로 저장에 실패했어요😱");
         setOverPickers(true);
       }
+      setRenderState(pickers.length);
       setNoticeContent("아티스트 저장에 성공했습니다🥰");
       setOverPickers(true);
     } else {
