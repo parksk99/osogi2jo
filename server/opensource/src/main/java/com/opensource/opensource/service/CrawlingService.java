@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -19,7 +18,7 @@ import java.util.concurrent.Executor;
 @Component
 @RequiredArgsConstructor
 public class CrawlingService {
-    @Qualifier("AsyncConfig")
+//    @Qualifier("AsyncConfig")
     private final Executor executor;
     private static final String url = "https://www.tocsoda.co.kr/product/view?brcd=76M2101153332&epsdBrcd=76S2101527508";
     String text = "";
@@ -27,7 +26,8 @@ public class CrawlingService {
 
     public String process() {
 //        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ojyse\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ojyse\\IdeaProjects\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         //크롬 드라이버 셋팅 (드라이버 설치한 경로 입력)
 
 //        driver = new ChromeDriver();
