@@ -21,7 +21,7 @@ result_array = []
 
 text_reader = TextReader(novel)
 while(True):
-    texts = text_reader.read(200)
+    texts = text_reader.read()
     if texts is None:
         break
     keywords,rank = keyword_detector.get_word_from_novel(texts, 2)  # 소설에서 단어 읽어들이기
