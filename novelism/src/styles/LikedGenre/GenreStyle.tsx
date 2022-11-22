@@ -75,8 +75,8 @@ export const ResultBox = styled.div`
   justify-items: center;
 
   & > .img-box {
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    max-width: 160px;
     aspect-ratio: auto 1/1;
     position: relative;
 
