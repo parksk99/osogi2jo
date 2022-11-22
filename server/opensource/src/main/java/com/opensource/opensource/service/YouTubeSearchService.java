@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +31,7 @@ public class YouTubeSearchService implements YouTubeProvider {
     private static final JsonFactory JSON_FACTORY = new JacksonFactory();
 
     /** Global instance of the max number of videos we want returned (50 = upper limit per page). */
-    private static final long NUMBER_OF_VIDEOS_RETURNED = 5;
+    private static final long NUMBER_OF_VIDEOS_RETURNED = 1;
 
     /** Global instance of Youtube object to make all API requests. */
     private static YouTube youtube;
@@ -83,9 +82,9 @@ public class YouTubeSearchService implements YouTubeProvider {
     }
 
     @Override
-    public ArrayList<VideoInfoDto> search(String keyword){
+    public VideoInfoDto search(String keyword, Double ratio){
         String url = "";
-        ArrayList<VideoInfoDto> result = new ArrayList<VideoInfoDto>();
+        VideoInfoDto result = new VideoInfoDto();
 
         try {
             youtube = new YouTube.Builder(HTTP_TRANSPORT, JSON_FACTORY, new HttpRequestInitializer() {
@@ -94,9 +93,9 @@ public class YouTubeSearchService implements YouTubeProvider {
 
             YouTube.Search.List search = youtube.search().list(Collections.singletonList("id,snippet"));
 
-            String q = "playlist " + getInputQuery();
+            String q = "playlist " + keyword;
             search.setKey(apiKey);
-            search.setQ("playlist 사랑");
+            search.setQ(q);
             search.setType(Collections.singletonList("video"));
             search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
             search.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
@@ -105,19 +104,20 @@ public class YouTubeSearchService implements YouTubeProvider {
             List<SearchResult> searchResultList = searchResponse.getItems();
             Iterator<SearchResult> list = searchResultList.iterator();
             if (searchResultList != null) {
-                prettyPrint(searchResultList.iterator(), keyword);
+//                prettyPrint(searchResultList.iterator(), keyword);
                 while(list.hasNext()){
                     SearchResult singleVideo = list.next();
                     ResourceId rId = singleVideo.getId();
                     String title = singleVideo.getSnippet().getTitle();
                     String thumbnailPath = singleVideo.getSnippet().getThumbnails().getDefault().getUrl();
                     url = "https://www.youtube.com/watch?v=" + rId.getVideoId();
-                    result.add(VideoInfoDto.builder()
-                            .emotion("사랑")
+                    result = VideoInfoDto.builder()
+                            .emotion(keyword)
+                            .ratio(ratio)
                             .thumbnailPath(thumbnailPath)
                             .title(title)
                             .videoUrl(url)
-                            .build());
+                            .build();
                 }
             }
         } catch (GoogleJsonResponseException e) {
