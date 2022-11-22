@@ -1,7 +1,7 @@
 package com.opensource.opensource.controller;
 
 import com.opensource.opensource.dto.VideoInfoDto;
-import com.opensource.opensource.utils.RequestTextAnalaysis;
+import com.opensource.opensource.service.RequestTextAnalaysis;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.GetMapping;

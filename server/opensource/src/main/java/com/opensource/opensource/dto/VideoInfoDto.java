@@ -18,8 +18,8 @@ public class VideoInfoDto {
 
     @Builder(toBuilder = true)
     public VideoInfoDto(String emotion, Double ratio, String title, String thumbnailPath, String videoUrl) {
-        this.emotion = "행복";
-        this.ratio = 0.0;
+        this.emotion = emotion;
+        this.ratio = ratio;
         this.title = title;
         this.thumbnailPath = thumbnailPath;
         this.videoUrl = videoUrl;
