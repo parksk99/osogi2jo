@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export interface Music {
   emotion: string;
-  ration: number;
+  ratio: number;
   title: string;
   thumbnailPath: string;
   videoUrl: string;
@@ -10,7 +10,7 @@ export interface Music {
 
 const initialState: Music = {
   emotion: "",
-  ration: 0,
+  ratio: 0,
   title: "",
   thumbnailPath: "",
   videoUrl: "",

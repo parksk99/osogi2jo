@@ -18,7 +18,7 @@ export default function PlayBar() {
   const stopMusic = () => {
     const initialState: Music = {
       emotion: "",
-      ration: 0,
+      ratio: 0,
       title: "",
       thumbnailPath: "",
       videoUrl: "",

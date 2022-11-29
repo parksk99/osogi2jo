@@ -72,6 +72,7 @@ export const PlayBox = styled.div<{ img: string }>`
   gap: 10px;
   justify-content: center;
   align-items: center;
+  transition: all 0.25s;
 
   & > .stop-btn {
     background: none;
@@ -98,6 +99,7 @@ export const PlayBox = styled.div<{ img: string }>`
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: all 0.25s;
     }
   }
 
