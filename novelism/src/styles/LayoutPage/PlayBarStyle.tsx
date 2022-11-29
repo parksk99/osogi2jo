@@ -73,6 +73,18 @@ export const PlayBox = styled.div<{ img: string }>`
   justify-content: center;
   align-items: center;
 
+  & > .stop-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+
   & > .img-box {
     height: 80%;
     aspect-ratio: 1/1;

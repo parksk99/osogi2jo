@@ -5,15 +5,26 @@ import {
 } from "../../styles/LayoutPage/PlayBarStyle";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretUp, faX } from "@fortawesome/free-solid-svg-icons";
 import { useRecoilState } from "recoil";
-import { recoilMusicState } from "../../states/recoilMusicState";
+import { recoilMusicState, Music } from "../../states/recoilMusicState";
 import ReactPlayer from "react-player";
 
 export default function PlayBar() {
   const [musicState, setMusicState] = useRecoilState(recoilMusicState);
   const [played, setPlayed] = useState(false);
   const [collapse, setCollapse] = useState(false);
+
+  const stopMusic = () => {
+    const initialState: Music = {
+      emotion: "",
+      ration: 0,
+      title: "",
+      thumbnailPath: "",
+      videoUrl: "",
+    };
+    setMusicState(initialState);
+  };
 
   useEffect(() => {
     if (musicState.emotion !== "") {
@@ -38,6 +49,9 @@ export default function PlayBar() {
           <div className="youtube-player">
             <ReactPlayer url={musicState.videoUrl} controls playing={true} />
           </div>
+          <button className="stop-btn" onClick={() => stopMusic()}>
+            <FontAwesomeIcon icon={faX} />
+          </button>
         </PlayBox>
       ) : (
         <NoPlayBox>
