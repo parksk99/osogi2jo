@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import { Container, ViewBox } from "../styles/LayoutPage/LayoutStyle";
 import LikedGenre from "./LikedGenre";
 import Novelism from "./Novelism";
+import TocSoda from "./TocSoda";
 
 export default function Layout() {
   const [recoilInfo, setRecoilInfo] =
@@ -22,6 +23,8 @@ export default function Layout() {
           <LikedGenre />
         ) : recoilInfo.state === Menus.Novelism ? (
           <Novelism />
+        ) : recoilInfo.state === Menus.Tocsoda ? (
+          <TocSoda />
         ) : (
           <></>
         )}

@@ -50,7 +50,7 @@ const Container = styled.div`
   font-size: 14px;
   /* -webkit-app-region: drag; */
   position: absolute;
-  z-index: 99;
+  z-index: 99999999;
 
   & > div {
     display: flex;
