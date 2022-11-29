@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{ color: string; collapse: boolean }>`
+export const Container = styled.div<{ collapse: boolean }>`
   width: 96vw;
   height: 10vh;
   border-radius: 10px;
-  background: ${(props) => props.color};
+  background: #636363b3;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -26,6 +26,12 @@ export const Container = styled.div<{ color: string; collapse: boolean }>`
     cursor: pointer;
     transform: ${(props) => (props.collapse ? "rotate(180deg)" : "")};
     transition: all 0.5s;
+  }
+
+  & > .youtube-player {
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
 `;
 
@@ -50,6 +56,78 @@ export const NoPlayBox = styled.div`
     font-weight: 300;
     font-size: 16px;
     cursor: default;
+  }
+`;
+
+export const PlayBox = styled.div<{ img: string }>`
+  width: 100%;
+  height: 100%;
+  background-image: url(${(props) => props.img});
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  & > .img-box {
+    height: 80%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    z-index: 1000;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & > .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    height: 100%;
+    padding-left: 50px;
+    gap: 3px;
+    z-index: 1000;
+
+    & > .title {
+      font-weight: 700;
+      font-size: 20px;
+      cursor: default;
+    }
+
+    & > .emotion {
+      font-weight: 300;
+      font-size: 16px;
+      cursor: default;
+    }
+  }
+
+  & > .blur-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 10px;
+    background: #2f2f2f7a;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  & > .youtube-player {
+    position: absolute;
+    bottom: -5000px;
   }
 `;
 

@@ -1,41 +1,44 @@
 import {
   Container,
   NoPlayBox,
-  CdBox,
-  MarqueeBox,
+  PlayBox,
 } from "../../styles/LayoutPage/PlayBarStyle";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-
-interface Music {
-  url: string;
-  title: string;
-  thumbnail: string;
-  color: string;
-}
+import { useRecoilState } from "recoil";
+import { recoilMusicState } from "../../states/recoilMusicState";
+import ReactPlayer from "react-player";
 
 export default function PlayBar() {
-  const tmpColor = "#636363B3";
+  const [musicState, setMusicState] = useRecoilState(recoilMusicState);
   const [played, setPlayed] = useState(false);
   const [collapse, setCollapse] = useState(false);
-  const [musics, setMusics] = useState<Array<Music>>();
+
+  useEffect(() => {
+    if (musicState.emotion !== "") {
+      setPlayed(true);
+    } else {
+      setPlayed(false);
+    }
+  }, [musicState]);
 
   return (
-    <Container color={tmpColor} collapse={collapse}>
-      {/* {played ? (
-        <></>
-      ) : collapse ? (
-        <CdBox>
-          <div className="cd-player" />
-          <MarqueeBox>
-            <span>재생중인 음악이 없네요.</span>
-            <span>재생중인 음악이 없네요.</span>
-            <span>재생중인 음악이 없네요.</span>
-            <span>재생중인 음악이 없네요.</span>
-            <span>재생중인 음악이 없네요.</span>
-          </MarqueeBox>
-        </CdBox>
+    <Container collapse={collapse}>
+      {played ? (
+        <PlayBox img={musicState.thumbnailPath}>
+          <div className="blur-box" />
+          <span className="img-box">
+            <img src={musicState.thumbnailPath} alt="img" />
+          </span>
+          <div className="info-box">
+            <span className="title">{musicState.title}</span>
+            <span className="emotion">{musicState.emotion}</span>
+          </div>
+          <div className="youtube-player">
+            <ReactPlayer url={musicState.videoUrl} controls playing={true} />
+          </div>
+        </PlayBox>
       ) : (
         <NoPlayBox>
           <span className="title">현재 재생중인 음악이 없습니다!</span>
@@ -43,13 +46,7 @@ export default function PlayBar() {
             Novelism에서 웹 소설을 감상하면, 배경음악은 알아서 켜드릴게요!
           </span>
         </NoPlayBox>
-      )} */}
-      <NoPlayBox>
-        <span className="title">현재 재생중인 음악이 없습니다!</span>
-        <span className="subtitle">
-          Novelism에서 웹 소설을 감상하면, 배경음악은 알아서 켜드릴게요!
-        </span>
-      </NoPlayBox>
+      )}
       <button
         className="collapse-btn"
         onClick={() => setCollapse((prev) => !prev)}
