@@ -56,8 +56,7 @@ while(True):
                #     result_array.append((wordname,(text_reader.readsentence/text_reader.novel_len)*100))
     if(len(emotional_word)!=0):
         max_word = max(emotional_word, key = lambda x : x[1])
-            # result_array.append((max_word[0],max_word[2]))
-        result_array.append((max_word))
+        result_array.append((max_word[0],max_word[2]))
 
     
 
