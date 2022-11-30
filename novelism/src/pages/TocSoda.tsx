@@ -2,6 +2,11 @@ import { useRef, useEffect, useState } from "react";
 import { Container } from "../styles/TocSoda/Layout";
 import { useRecoilState } from "recoil";
 import { Music, recoilMusicState } from "../states/recoilMusicState";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function TocSoda() {
   const [musicState, setMusicState] = useRecoilState(recoilMusicState);
@@ -70,6 +75,14 @@ export default function TocSoda() {
     setCurUrl(e.url);
   };
 
+  const goBackInWebview = () => {
+    viewRef.current.goBack();
+  };
+
+  const goForwardInWebview = () => {
+    viewRef.current.goForward();
+  };
+
   useEffect(() => {
     viewRef.current.addEventListener("will-navigate", (e: any) =>
       moveUrlEventHandler(e)
@@ -98,6 +111,14 @@ export default function TocSoda() {
         useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"
         ref={viewRef}
       ></webview>
+      <div className="btn-box">
+        <button onClick={() => goBackInWebview()}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <button onClick={() => goForwardInWebview()}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+      </div>
     </Container>
   );
 }
