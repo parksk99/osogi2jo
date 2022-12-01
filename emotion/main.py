@@ -7,23 +7,22 @@ keyword_detector = Word()
 emotion_detector = Emotion()
 
 #파일에서 읽기
-novel_path = 'novel3.txt'    #5000줄로 늘림
+novel_path = 'novel3.txt'    #5000줄 분량 소설
 novel= open(novel_path, 'r', encoding = 'utf-8').read()
-
-unit_array = []
-result_array = []
-
 text_reader = TextReader(novel)
 
 maxCount = 12
-bestIndex = 0
+bestIndex = 0   #best 문단 단위 값
+
+result_array = []
 count = [0 for i in range(maxCount)]
 
+#tester.py
 with open(novel_path, 'r', encoding = 'utf-8') as novel_file:   #문단 단위 정하기
         novel = novel_file.readlines()
         for i in range(0,maxCount):
             unit_length = (i+1)*100 #소설 문단 단위 100씩 증가
-            for j in range(0,int(5000/unit_length)):
+            for j in range(0,int(text_reader.novel_len/unit_length)):
                 keywords, rank = keyword_detector.get_word_from_novel(novel[j*unit_length:(j+1)*(unit_length)],2)
                 if(keywords is None):
                     print(unit_length,'keyword is not detected')
@@ -34,16 +33,14 @@ with open(novel_path, 'r', encoding = 'utf-8') as novel_file:   #문단 단위 �
                     if emotion != 'None':
                         count[i] = count[i]+1
                 # count[i] = count[i]+len(keywords)
-            count[i] = count[i] / (5000/unit_length)
-            unit_array.append(count[i])
-            if i == 0:
+            count[i] = count[i] / (text_reader.novel_len/unit_length)
+            if i == 0:  #0번째 시행 때 그냥 best에 넣음
                 bestCount = count[i]
                 bestIndex = i
             elif count[i] > bestCount:
                 bestCount = count[i]
                 bestIndex = i
-
-unit_length = (bestIndex+1)*100
+unit_length = (bestIndex+1)*100 #최종 문단 단위 결정
 
 while(True):
     texts = text_reader.read()
@@ -80,10 +77,7 @@ while(True):
                #     result_array.append((wordname,(text_reader.readsentence/text_reader.novel_len)*100))
     if(len(emotional_word)!=0):
         max_word = max(emotional_word, key = lambda x : x[1])
-        # result_array.append((max_word[0],max_word[2]))
-        result_array.append((max_word))
-        # max_word = max(emotional_word, key = lambda x : x[1])
-        # result_array.append((max_word[0],max_word[2]))
+        result_array.append((max_word[0],max_word[2]))
 
     # start_pos = end_pos
     # end_pos = start_pos + max_unit
@@ -92,7 +86,8 @@ while(True):
     # print('감정 분석 소요 시간 : ',end-start)
     # print('감정 총합 : ',emotion_sum)
     # print(emotional_word)
-    # print('============================================================================================================')    
+
+print('Unit of length: ', unit_length)
 print('result : ',result_array)
     
 
