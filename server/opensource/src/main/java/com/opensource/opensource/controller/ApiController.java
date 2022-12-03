@@ -18,8 +18,8 @@ public class ApiController {
 
     @SneakyThrows
     @GetMapping("/novel")
-    public ArrayList<VideoInfoDto> requestResult(@RequestParam String novelUrl){
+    public ArrayList<VideoInfoDto> requestResult(@RequestParam String novelUrl, @RequestParam String genre){
         System.out.println(novelUrl);
-        return requestTextAnalaysis.useResTemplate(novelUrl);
+        return requestTextAnalaysis.useResTemplate(novelUrl, genre);
     }
 }

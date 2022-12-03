@@ -82,7 +82,7 @@ public class YouTubeSearchService implements YouTubeProvider {
     }
 
     @Override
-    public VideoInfoDto search(String keyword, Double ratio){
+    public VideoInfoDto search(String keyword, Double ratio, String genre){
         String url = "";
         VideoInfoDto result = new VideoInfoDto();
 
@@ -93,7 +93,7 @@ public class YouTubeSearchService implements YouTubeProvider {
 
             YouTube.Search.List search = youtube.search().list(Collections.singletonList("id,snippet"));
 
-            String q = "playlist " + keyword;
+            String q = keyword + " " + genre + " playlist";
             search.setKey(apiKey);
             search.setQ(q);
             search.setType(Collections.singletonList("video"));

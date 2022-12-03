@@ -26,7 +26,7 @@ public class RequestTextAnalaysis{
     private final YouTubeSearchService youTubeSearchService;
 
 
-    public ArrayList<VideoInfoDto> useResTemplate(String novel) throws ParseException {
+    public ArrayList<VideoInfoDto> useResTemplate(String novel, String genre) throws ParseException {
         ArrayList<VideoInfoDto> resp = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
         restTemplate.getMessageConverters()
@@ -50,7 +50,7 @@ public class RequestTextAnalaysis{
             JSONObject object = (JSONObject) jsonParser.parse(resultArray.get(i).toString());
             String keyword = (String) object.get("keyword");
             Double ratio = (Double) object.get("ratio");
-            resp.add(youTubeSearchService.search(keyword, ratio));
+            resp.add(youTubeSearchService.search(keyword, ratio, genre));
         }
         return resp;
     }
