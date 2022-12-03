@@ -7,12 +7,16 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faX } from "@fortawesome/free-solid-svg-icons";
 import { useRecoilState } from "recoil";
-import { recoilMusicState, Music } from "../../states/recoilMusicState";
+import {
+  recoilMusicState,
+  Music,
+  recoilPlayedState,
+} from "../../states/recoilMusicState";
 import ReactPlayer from "react-player";
 
 export default function PlayBar() {
   const [musicState, setMusicState] = useRecoilState(recoilMusicState);
-  const [played, setPlayed] = useState(false);
+  const [played, setPlayed] = useRecoilState(recoilPlayedState);
   const [collapse, setCollapse] = useState(false);
 
   const stopMusic = () => {
@@ -36,7 +40,7 @@ export default function PlayBar() {
 
   return (
     <Container collapse={collapse}>
-      {played ? (
+      {played && musicState.thumbnailPath !== "" ? (
         <PlayBox img={musicState.thumbnailPath}>
           <div className="blur-box" />
           <span className="img-box">

@@ -39,7 +39,6 @@ export default function TasteBox(props: tasteProps) {
       const topTasteNum = newObj.reduce((a, b) => (a[1] > b[1] ? a : b))[1];
       setMainTaste(topTaste.toLowerCase());
       setMainTasteRatio((topTasteNum / peeks.length).toFixed(2));
-      localStorage.setItem("taste", topTaste);
 
       let secondObj: [string, number][] = [];
       newObj.map((o) =>
@@ -99,6 +98,12 @@ export default function TasteBox(props: tasteProps) {
   useEffect(() => {
     setTasteName();
   }, [tasteNum]);
+
+  useEffect(() => {
+    if (mainTaste) {
+      localStorage.setItem("taste", mainTaste);
+    }
+  }, [mainTaste]);
 
   return (
     <ResultBox>
