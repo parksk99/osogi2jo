@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { explanation } from "../resources/genre";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const reg = /^(https?:\/\/)([^\/]*)(\.)(tocsoda\.co.kr\/)(product\/)(view?)/;
 
@@ -20,11 +21,13 @@ export default function TocSoda() {
   const [musicState, setMusicState] = useRecoilState(recoilMusicState);
   const [played, setPlayed] = useRecoilState(recoilPlayedState);
   const viewRef = useRef<any>(null);
+  const scrollRef = useRef<any>(null);
   const [curUrl, setCurUrl] = useState("");
   const [musics, setMusics] = useState<Array<Music>>([]);
   const [progress, setProgress] = useState(0);
   const [genre, setGenre] = useState("");
   const [ratioArr, setRatioArr] = useState<Array<number>>([]);
+  const [loading, setLoading] = useState(false);
 
   const getMyGenre = () => {
     const myGenre = localStorage.getItem("taste");
@@ -82,6 +85,7 @@ export default function TocSoda() {
 
   const moveUrlEventHandler = (e: any) => {
     setCurUrl(e.url.replace("&", "%26"));
+    scrollRef.current.scrollTop = 0;
   };
 
   const goBackInWebview = () => {
@@ -101,10 +105,12 @@ export default function TocSoda() {
         },
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        setLoading(false);
         setMusics(res.data);
         setRatioArr(res.data.map((item: Music) => item.ratio));
-        setPlayed(true); //통신 성공시
+        setPlayed(true);
+        setProgress(0);
       })
       .catch((error) => {
         console.log(error);
@@ -123,10 +129,8 @@ export default function TocSoda() {
 
   useEffect(() => {
     if (reg.test(curUrl)) {
-      console.log(curUrl);
+      setLoading(true);
       getInfoFromServer();
-      // tmpMusics();
-      // setPlayed(true); //통신 성공시
     }
   }, [curUrl]);
 
@@ -137,7 +141,7 @@ export default function TocSoda() {
   }, [progress]);
 
   return (
-    <Container onScroll={scrollHandler}>
+    <Container onScroll={scrollHandler} ref={scrollRef}>
       <webview
         ng-style="style"
         id="content"
@@ -153,6 +157,7 @@ export default function TocSoda() {
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>
+      {loading ? <LoadingSpinner /> : <></>}
     </Container>
   );
 }
