@@ -2,14 +2,20 @@ from emotion import Emotion
 from textreader import TextReader
 import time
 from word import Word
+from strtotxt import Convert
 
 keyword_detector = Word()
 emotion_detector = Emotion()
 
-#파일에서 읽기
-novel_path = 'novel3.txt'    #5000줄 분량 소설
-novel= open(novel_path, 'r', encoding = 'utf-8').read()
+#str에서 읽기
+novel_convert = Convert(novel_str)
+novel_path = "novel_str.txt"
+novel = open(novel_path, 'r', encoding = 'utf-8').read()
 text_reader = TextReader(novel)
+#파일에서 읽기
+# novel_path = 'novel.txt'    #5000줄 분량 소설
+# novel = open(novel_path, 'r', encoding = 'utf-8').read()
+# text_reader = TextReader(novel)
 
 maxCount = 12
 bestIndex = 0   #best 문단 단위 값
