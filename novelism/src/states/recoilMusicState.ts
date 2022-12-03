@@ -20,3 +20,8 @@ export const recoilMusicState = atom({
   key: "recoilMusicState",
   default: initialState,
 });
+
+export const recoilPlayedState = atom({
+  key: "recoilPlayedState",
+  default: false,
+});
