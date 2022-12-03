@@ -28,7 +28,7 @@ const item2: Item = {
 const item3: Item = {
   image:
     "https://blog.kakaocdn.net/dn/YqY2k/btrRz1nOKWB/nvC73lCHwa9GH2qtbsL8n0/img.jpg",
-  quote: "나를 죽인 가문으 핏줄로\n다시 태어나다.",
+  quote: "나를 죽인 가문의 핏줄로\n다시 태어나다.",
   tags: ["긴장", "싸움", "배반"],
   title: "재벌집 막내아들 1화 무료공개",
   platform: "TOCSODA",
