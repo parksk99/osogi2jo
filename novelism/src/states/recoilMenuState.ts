@@ -7,6 +7,10 @@ export enum Menus {
   Novelism,
   Genre,
   Search,
+  Naver,
+  Joara,
+  Kakao,
+  Munpia,
 }
 
 export interface MenuState {

@@ -11,7 +11,6 @@ import {
   faHouse,
   faThumbsUp,
   faHeart,
-  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { platforms } from "../../resources/platforms";
 import { useRecoilState } from "recoil";
@@ -20,15 +19,24 @@ import {
   MenuState,
   Menus,
 } from "../../states/recoilMenuState";
+import BasicModal from "../BasicModal";
+import { useState } from "react";
+import { ProhibitModal } from "../../styles/Home/HomeStyle";
 
 export default function LeftBar() {
   const [recoilInfo, setRecoilInfo] =
     useRecoilState<MenuState>(recoilMenuState);
+  const [modal, setModal] = useState(false);
   const setMenu = (menu: Menus) => {
     const newMenu: MenuState = {
       state: menu,
     };
     setRecoilInfo(newMenu);
+  };
+
+  const goToTocSoda = () => {
+    setModal(false);
+    setRecoilInfo({ state: Menus.Tocsoda });
   };
   return (
     <div>
@@ -60,7 +68,11 @@ export default function LeftBar() {
             <li
               key={platform.name}
               className="list-subtitle"
-              onClick={() => setMenu(Menus.Tocsoda)}
+              onClick={() =>
+                platform.name === "Toc Soda"
+                  ? setMenu(Menus.Tocsoda)
+                  : setModal(true)
+              }
             >
               <Circle color={platform.color} />
               {platform.name}
@@ -82,6 +94,17 @@ export default function LeftBar() {
           </li>
         </ListCover>
       </Container>
+      <BasicModal open={modal}>
+        <ProhibitModal>
+          <span className="title">
+            현재 저작권 문제로 크롤링이 금지된 플랫폼입니다.
+          </span>
+          <div className="btn-box">
+            <button onClick={() => goToTocSoda()}>톡소다 이용하기</button>
+            <button onClick={() => setModal(false)}>닫기</button>
+          </div>
+        </ProhibitModal>
+      </BasicModal>
     </div>
   );
 }

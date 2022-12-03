@@ -109,3 +109,37 @@ export const PlatformItem = styled.div<{ index: number }>`
     }
   }
 `;
+
+export const ProhibitModal = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 100px 0px;
+
+  & > .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f15441;
+  }
+
+  & > .btn-box {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    & > button {
+      border: none;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 10px 15px;
+      font-weight: 700;
+      font-family: "Pretendard Variable";
+    }
+  }
+`;
