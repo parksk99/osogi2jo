@@ -80,10 +80,6 @@ export default function LeftBar() {
             <FontAwesomeIcon icon={faHeart} />
             Liked Genre
           </li>
-          <li className="list-subtitle" onClick={() => setMenu(Menus.Search)}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-            Search
-          </li>
         </ListCover>
       </Container>
     </div>
