@@ -44,7 +44,7 @@ const Container = styled.div<{ position: number }>`
   position: absolute;
   top: ${(props) => `${props.position}px`};
   left: 50%;
-  transform: translateX(-30%);
+  transform: translateX(-50%);
   z-index: 50;
   transition: all 0.25s ease;
   cursor: default;
@@ -54,5 +54,6 @@ const Container = styled.div<{ position: number }>`
     color: white;
     font-weight: 600;
     white-space: pre-line;
+    text-align: center;
   }
 `;
