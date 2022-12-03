@@ -5,22 +5,30 @@ import {
   faWindowMinimize,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function Frame() {
   // const ipc = window.require("electron").ipcRenderer;
   // const remote = window.require("electron").remote;
   // const currentWindow = remote.getCurrentWindow();
+  const [isMaximized, setIsMaximized] = useState(false);
+  const win = require("electron").remote.getCurrentWindow();
   const minimize = () => {
     // ipc.send("min");
     // currentWindow.minimize();
+    win.minimize();
   };
   const maximize = () => {
     // ipc.send("max");
+    setIsMaximized((prev) => !prev);
+    isMaximized ? win.unmaximize() : win.maximize();
   };
   const close = () => {
     // ipc.send("closeApp");
     // currentWindow.close();
+    win.close();
   };
+
   return (
     <Container>
       <span className="prevent-select"></span>
