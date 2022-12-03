@@ -17,6 +17,7 @@ function createMainWindow(): void {
       nodeIntegration: true,
       webviewTag: true,
     },
+    icon: path.join(__dirname, "./512x512.png"),
   });
 
   const mainWindowUrl: string = url
@@ -24,10 +25,6 @@ function createMainWindow(): void {
     .toString();
 
   mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
-
-  if (isDev) {
-    mainWindow.webContents.openDevTools();
-  }
 
   mainWindow.on("closed", (): void => {
     mainWindow = null;
