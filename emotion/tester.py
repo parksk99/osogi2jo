@@ -24,13 +24,9 @@ for index in range(1,4):
                     tmp, emotion = emotion_detector.data_list(wordname =  wordname)
                     if emotion != 'None':
                         count[i] = count[i]+1
-                # count[i] = count[i]+len(keywords)
             count[i] = count[i] / (5000/unit_length)
     mean = sum(count)/len(count)
     plt.plot([(i+1)*100 for i in range(max)], count,color[index-1])
-    # plt.plot(index*100,mean,'o'+color[index-1])
     
     plt.show()
-    # plt.savefig('test'+str(index)+'.png')
 plt.savefig('testtotal.png')
-    

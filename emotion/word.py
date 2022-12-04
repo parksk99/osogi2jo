@@ -12,11 +12,6 @@ class Word():
         beta = 0.1    # PageRank의 decaying factor beta
         max_iter = 10
 
-        # with open(novel_path, 'r',encoding='UTF8') as f:
-        # texts = []
-        # for line in f:
-        #     texts.append(line)
-    
         texts = [normalize(text,english=False , number=True) for text in texts ]
         start= time.time()
         if(len(texts) < 10):

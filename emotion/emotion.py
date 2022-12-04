@@ -5,8 +5,6 @@ class Emotion():
 		with open('knusl/data/SentiWord_info.json', encoding='utf-8-sig', mode='r') as f:
 			self.data = json.load(f)
 	def data_list(self, wordname):   
-		# with open('knusl/data/SentiWord_info.json', encoding='utf-8-sig', mode='r') as f:
-		# 	data = json.load(f)
 		result = ['None','None']
 		for i in range(0, len(self.data)):
 			if self.data[i]['word'] == wordname:
