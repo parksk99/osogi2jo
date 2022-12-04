@@ -20,10 +20,7 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 
 ## ✨ Overview
 
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=plastic-square&logo=TypeScript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=plastic-square&logo=React&logoColor=white"/>
-<img src="https://img.shields.io/badge/Electron-47848F?style=plastic-square&logo=Electron&logoColor=white"/>
-<img src="https://img.shields.io/badge/Styled Components-DB7093?style=plastic-square&logo=styled-components&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=plastic-square&logo=TypeScript&logoColor=white"/><img src="https://img.shields.io/badge/React-61DAFB?style=plastic-square&logo=React&logoColor=white"/><img src="https://img.shields.io/badge/Electron-47848F?style=plastic-square&logo=Electron&logoColor=white"/><img src="https://img.shields.io/badge/Styled Components-DB7093?style=plastic-square&logo=styled-components&logoColor=white"/><br/>
 
 **현재 Tocsoda 플랫폼만 이용 가능합니다.**
 
@@ -42,9 +39,9 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 
 ## 🛒 Installing
 
-1.
-2.
-3.
+1. [다운로드 링크](https://drive.google.com/file/d/1WbvpRdNLm1Q0Mae65R5iwMX2UQgmEozf/view?usp=sharing)에서 Setup 파일 다운로드
+2. Novelism 설치 및 실행
+3. 웹 소설 감상
 
 ## 🏆 Contributing
 
