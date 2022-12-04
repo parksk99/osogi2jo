@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
-public class RequestTextAnalaysis {
+public class RequestNovelAnalaysis {
     private final RestTemplate restTemplate;
     private final YouTubeSearchService youTubeSearchService;
 
@@ -35,7 +35,7 @@ public class RequestTextAnalaysis {
         URI uri = UriComponentsBuilder
 //                .fromUriString("http://localhost:8000")
                 .fromUriString("http://3.36.166.73")
-                .path("/textAnalysis/text/result").encode().build().toUri();
+                .path("/textAnalysis/novel/result").encode().build().toUri();
         RequestDto req = new RequestDto();
         req.setNovel(novel);
         RequestEntity<RequestDto> requestEntity = RequestEntity
