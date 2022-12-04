@@ -34,7 +34,11 @@ export default function NovelGrid() {
       {novels && novels.length > 0 ? (
         <NovelGridBox>
           {novels.map((novel, index) => (
-            <NovelItem novel={novel} />
+            <NovelItem
+              novel={novel}
+              index={index}
+              setNovelHandler={setNovelHandler}
+            />
           ))}
         </NovelGridBox>
       ) : (

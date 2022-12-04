@@ -5,10 +5,11 @@ import {
   InputModalContainer,
   CloseBtn,
 } from "../styles/Novelism/Layout";
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import BasicModal from "../components/BasicModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import MyNovel from "./MyNovel";
 
 interface Novel {
   author: string;
@@ -19,52 +20,69 @@ interface Novel {
 
 export default function Novelism() {
   const [modal, setModal] = useState(false);
-
-  //   const electronTest = () => {
-  //     const app = electron.app;
-  //     const directoryPath = `${app.getPath("appData")}/electronTest/test`;
-
-  //     fs.existsSync(directoryPath);
-  //     fs.exists(directoryPath, (exists) => {
-  //       console.log(exists);
-  //     });
-  //   };
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [txt, setTxt] = useState<string | ArrayBuffer | null>("");
+  const [viewer, setViewer] = useState(false);
 
   return (
-    <Container>
-      <div className="container-content">
-        <TitleBox />
-        <button onClick={(e) => setModal(true)}>
-          <span>소설 등록하기</span>
-        </button>
-        <NovelGrid />
-      </div>
-      <BasicModal open={modal}>
-        <CloseBtn onClick={() => setModal(false)}>
-          <FontAwesomeIcon icon={faX} />
-        </CloseBtn>
-        <InputModal close={() => setModal(false)} />
-      </BasicModal>
-    </Container>
+    <>
+      {viewer ? (
+        <MyNovel txt={txt} title={title} author={author} />
+      ) : (
+        <Container>
+          <div className="container-content">
+            <TitleBox />
+            <button onClick={(e) => setModal(true)}>
+              <span>소설 등록하기</span>
+            </button>
+            <NovelGrid />
+          </div>
+          <BasicModal open={modal}>
+            <CloseBtn onClick={() => setModal(false)}>
+              <FontAwesomeIcon icon={faX} />
+            </CloseBtn>
+            <InputModal
+              close={() => setModal(false)}
+              setTxt={setTxt}
+              setViewer={setViewer}
+              title={title}
+              setTitle={setTitle}
+              author={author}
+              setAuthor={setAuthor}
+            />
+          </BasicModal>
+        </Container>
+      )}
+    </>
   );
 }
 
-const InputModal = (props: { close: () => void }) => {
-  const { close } = props;
+const InputModal = (props: {
+  close: () => void;
+  setTxt: Dispatch<SetStateAction<string | ArrayBuffer | null>>;
+  setViewer: Dispatch<SetStateAction<boolean>>;
+  title: string;
+  setTitle: Dispatch<SetStateAction<string>>;
+  author: string;
+  setAuthor: Dispatch<SetStateAction<string>>;
+}) => {
+  const { close, setTxt, setViewer, title, setTitle, author, setAuthor } =
+    props;
   const [txtPath, setTxtPath] = useState("");
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [err, setErr] = useState(false);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      console.log(event);
       const file: any = event.target.files[0];
       if (file) {
         setTxtPath(file.path);
       }
       const reader = new FileReader();
+      reader.onload = () => {
+        setTxt(reader.result);
+      };
       reader.readAsText(file);
     }
   };
@@ -74,6 +92,7 @@ const InputModal = (props: { close: () => void }) => {
       setErr(true);
     } else {
       saveInLocalStorage();
+      setViewer(true);
       close();
     }
   };

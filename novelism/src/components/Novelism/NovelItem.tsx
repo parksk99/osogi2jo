@@ -9,12 +9,25 @@ interface Novel {
 
 interface itemProps {
   novel: Novel;
+  index: number;
+  setNovelHandler: () => void;
 }
 
 export default function NovelItem(props: itemProps) {
-  const { novel } = props;
+  const { novel, index, setNovelHandler } = props;
+
+  const removeThisItem = () => {
+    const dataJson = localStorage.getItem("novels");
+    if (dataJson) {
+      const Arr: Array<Novel> = JSON.parse(dataJson);
+      const newArr = Arr.filter((a, ind) => ind !== index);
+      localStorage.setItem("novels", JSON.stringify(newArr));
+      setNovelHandler();
+    }
+  };
+
   return (
-    <Container>
+    <Container onClick={removeThisItem}>
       <img src={novel.img} alt="background" />
       <div className="content-box">
         <span className="title">{novel.title}</span>
