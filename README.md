@@ -4,13 +4,16 @@
 
 ## 🎉Index
 
-- [Overview](#✨-overview)
-- [Getting Started](#🎊-getting-started)
-- [Installing](#🛒-installing)
-- [Contributing](#🏆-contributing)
-- [Team](#🕶-team)
-- [Reference](#🔎-reference)
-- [License](#💸-license)
+- [웹 소설을 더 감각적으로 즐기는 방법, Novelism 🎧](#웹-소설을-더-감각적으로-즐기는-방법-novelism-)
+  - [🎉Index](#index)
+  - [🎠 About Novelism](#-about-novelism)
+  - [✨ Overview](#-overview)
+  - [🎊 Getting Started](#-getting-started)
+  - [🛒 Installing](#-installing)
+  - [🏆 Contributing](#-contributing)
+  - [🕶 Team](#-team)
+  - [🔎 Reference](#-reference)
+  - [💸 License](#-license)
 
 ## 🎠 About Novelism
 
@@ -67,7 +70,7 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 
 ## 🕶 Team
 
-- [Junkyulee](https://github.com/Always0ne) - **Natural Language Processing** - <igun0423@naver.com>
+- [SeongGyuPark](https://github.com/parksk99) - **Natural Language Processing** - <qkrtjdrb99@naver.com>
 - [Junkyulee](https://github.com/Always0ne) - **Natural Language Processing** - <igun0423@naver.com>
 - [Junkyulee](https://github.com/Always0ne) - **Natural Language Processing** - <igun0423@naver.com>
 - [SeungminRyu](https://github.com/Always0ne) - **Backend Development** - <ojysep9987@gmail.com>
@@ -77,6 +80,7 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 
 - [Electron Open Repository](https://github.com/electron/electron)
 - [Styled-Components](https://github.com/styled-components/styled-components)
+- [KR Word Rank](https://pypi.org/project/krwordrank)
 
 ## 💸 License
 
