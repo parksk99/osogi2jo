@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# ✨Novelism, 웹 소설을 더 감각적으로 즐기는 방법
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💻 Frontend 디렉토리입니다.
 
-## Available Scripts
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=plastic-square&logo=TypeScript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=plastic-square&logo=React&logoColor=white"/>
+<img src="https://img.shields.io/badge/Electron-47848F?style=plastic-square&logo=Electron&logoColor=white"/>
+<img src="https://img.shields.io/badge/Styled Components-DB7093?style=plastic-square&logo=styled-components&logoColor=white"/>
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### 시작 화면
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/44965706/205480146-c73a38e0-bd3a-454b-b9c9-f5972c09af3b.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 홈 화면
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/44965706/205480176-08a8a46c-117d-42a1-ad28-98632c1a880d.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 개발자 소개 페이지
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/44965706/205480222-49be80f2-1e51-4c6a-b495-0c2591659a4f.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 장르 선택 페이지
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/44965706/205480248-e81f3bd1-4101-43a5-b5ed-1d06df6581aa.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 별도의 통신 / 인증 과정 없이, `localStorage`를 활용하여 구현하였습니다.
 
-### `npm run eject`
+### 노벨리즘 페이지
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/44965706/205480498-0d81a8d7-c573-455d-98db-e7b5bfa9a999.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/44965706/205480539-db4ea121-7f04-4f30-864d-469fdb243205.png)
+![2022-12-04 17;07;18](https://user-images.githubusercontent.com/44965706/205480607-65b13c84-15a0-4eb0-8bcc-bb73eff54266.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 사용자가 자체적으로 텍스트를 업로드하고 읽을 수 있는 페이지입니다.
+- 등록한 소설의 메타데이터는 `localStorage`에 기록 됩니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 웹 소설 플랫폼 이용
 
-## Learn More
+![시현](https://user-images.githubusercontent.com/44965706/205481483-c77a0ab3-3fad-413e-9d6c-eae869323eb1.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 읽고 있는 회차의 텍스트를 미리 스크래핑합니다.
+  - 분석이 완료되기 전 까지 로딩 스피너가 나타납니다.
+  - 스크롤되는 뷰포트에 따라서 음악이 바뀝니다.
