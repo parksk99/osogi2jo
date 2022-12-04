@@ -5,9 +5,22 @@ import {
 } from "../styles/IndexPage/IndexPageStyle";
 import RecordMusic from "../resources/Images/RecordMusic.svg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Notice from "../components/Notice";
 
 export default function IndexPage() {
   let navigate = useNavigate();
+  const [notice, setNotice] = useState(false);
+
+  const inquire = async () => {
+    try {
+      await navigator.clipboard.writeText("igun0423@naver.com");
+      setNotice(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container>
       <div className="title-box">
@@ -17,7 +30,7 @@ export default function IndexPage() {
           <Button onClick={() => navigate("/home")}>
             <ButtonText>시작하기</ButtonText>
           </Button>
-          <Button>
+          <Button onClick={() => inquire()}>
             <ButtonText>문의하기</ButtonText>
           </Button>
         </div>
@@ -29,6 +42,11 @@ export default function IndexPage() {
         <div className="circle-stroke" />
         <div className="move-circle" />
       </div>
+      <Notice
+        content={`팀 메일이 클립보드에 복사되었습니다.\n해당 메일로 문의 접수 부탁드려요 :)`}
+        over={notice}
+        setOver={setNotice}
+      />
     </Container>
   );
 }

@@ -8,22 +8,19 @@ var baseUrl = "http://localhost:3000";
 var mainWindow;
 function createMainWindow() {
     mainWindow = new electron_1.BrowserWindow({
-        width: 1080,
-        height: 800,
+        minWidth: 1080,
+        minHeight: 600,
         frame: false,
-        resizable: false,
         webPreferences: {
             nodeIntegration: true,
             webviewTag: true
-        }
+        },
+        icon: path.join(__dirname, "./512x512.png")
     });
     var mainWindowUrl = url
         .pathToFileURL(path.join(__dirname, "../build/index.html"))
         .toString();
     mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
-    }
     mainWindow.on("closed", function () {
         mainWindow = null;
     });

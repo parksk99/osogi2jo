@@ -10,14 +10,14 @@ let mainWindow: BrowserWindow | null;
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 1080,
-    height: 800,
+    minWidth: 1080,
+    minHeight: 600,
     frame: false,
-    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
     },
+    icon: path.join(__dirname, "./512x512.png"),
   });
 
   const mainWindowUrl: string = url
@@ -25,10 +25,6 @@ function createMainWindow(): void {
     .toString();
 
   mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
-
-  if (isDev) {
-    mainWindow.webContents.openDevTools();
-  }
 
   mainWindow.on("closed", (): void => {
     mainWindow = null;

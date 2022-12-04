@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0px;
     font-family: "Pretendard Variable";
     overflow: hidden;
+    background-color: #F5F7FB;
   }
 
   div{
