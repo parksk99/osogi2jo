@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   font-style: normal;
   font-display: swap;
   src: local("Pretendard Variable"),
-    url("../public/fonts/PretendardVariable.woff2") format("woff2-variations");
+    url("../build/fonts/PretendardVariable.woff2") format("woff2-variations");
 }
   html, body{
     margin: 0px;

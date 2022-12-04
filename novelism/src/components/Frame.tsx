@@ -5,29 +5,43 @@ import {
   faWindowMinimize,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import isElectron from "is-electron";
+// import { IpcRenderer } from "electron";
+// const { ipcRenderer } = window.require("electron");
+// const ipc = ipcRenderer;
+
+// declare global {
+//   interface Window {
+//     ipcRenderer: IpcRenderer;
+//   }
+// }
 
 export default function Frame() {
-  // const ipc = window.require("electron").ipcRenderer;
   // const remote = window.require("electron").remote;
   // const currentWindow = remote.getCurrentWindow();
-  const [isMaximized, setIsMaximized] = useState(false);
-  const win = require("electron").remote.getCurrentWindow();
+  // const [isMaximized, setIsMaximized] = useState(false);
+  // const win = require("electron").remote.getCurrentWindow();
   const minimize = () => {
     // ipc.send("min");
     // currentWindow.minimize();
-    win.minimize();
+    // win.minimize();
   };
   const maximize = () => {
     // ipc.send("max");
-    setIsMaximized((prev) => !prev);
-    isMaximized ? win.unmaximize() : win.maximize();
+    // setIsMaximized((prev) => !prev);
+    // isMaximized ? win.unmaximize() : win.maximize();
   };
   const close = () => {
     // ipc.send("closeApp");
     // currentWindow.close();
-    win.close();
+    // win.close();
   };
+
+  useEffect(() => {
+    if (isElectron()) {
+    }
+  }, []);
 
   return (
     <Container>

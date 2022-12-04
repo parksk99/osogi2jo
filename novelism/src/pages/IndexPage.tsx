@@ -4,13 +4,14 @@ import {
   ButtonText,
 } from "../styles/IndexPage/IndexPageStyle";
 import RecordMusic from "../resources/Images/RecordMusic.svg";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Notice from "../components/Notice";
+import { useRecoilState } from "recoil";
+import { recoilIndexState, Stage } from "../states/recoilIndexState";
 
 export default function IndexPage() {
-  let navigate = useNavigate();
   const [notice, setNotice] = useState(false);
+  const [stage, setStage] = useRecoilState(recoilIndexState);
 
   const inquire = async () => {
     try {
@@ -27,7 +28,7 @@ export default function IndexPage() {
         <span className="title">Novelism</span>
         <span className="subtitle">{`웹 소설을 즐기는\n가장 감각적인 방법.`}</span>
         <div className="btn-box">
-          <Button onClick={() => navigate("/home")}>
+          <Button onClick={() => setStage(Stage.Layout)}>
             <ButtonText>시작하기</ButtonText>
           </Button>
           <Button onClick={() => inquire()}>
