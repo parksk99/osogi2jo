@@ -81,6 +81,7 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 - [Electron Open Repository](https://github.com/electron/electron)
 - [Styled-Components](https://github.com/styled-components/styled-components)
 - [KR Word Rank](https://pypi.org/project/krwordrank)
+- [knusl](https://github.com/park1200656/KnuSentiLex)
 
 ## 💸 License
 
