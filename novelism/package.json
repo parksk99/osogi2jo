@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "main": "./public/electron.js",
-  "homepage": "",
+  "homepage": "./",
   "dependencies": {
+    "@craco/craco": "^7.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
@@ -18,10 +19,14 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
     "electron-is-dev": "^2.0.0",
+    "electron-react-titlebar": "^1.2.1",
+    "is-electron": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-player": "^2.11.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
     "typescript": "^4.8.4",
@@ -38,8 +43,9 @@
     "compile-main": "tsc ./public/electron.ts",
     "start-main-after-renderer": "wait-on http://localhost:3000 && npm run start-main",
     "dev": "concurrently -n renderer, main 'npm:start-renderer' 'npm:start-main-after-renderer'",
-    "dist": "npm run build && electron-builder --dir",
-    "predist": "npm run compile-main"
+    "dist": "react-scripts build && electron-builder --dir",
+    "predist": "npm run compile-main",
+    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": [
@@ -65,5 +71,18 @@
     "electron": "^21.1.1",
     "electron-builder": "^23.6.0",
     "wait-on": "^6.0.1"
+  },
+  "build": {
+    "extends": null,
+    "appId": "com.example.electron-cra",
+    "files": [
+      "dist/**/*",
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }

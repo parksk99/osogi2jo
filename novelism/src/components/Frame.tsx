@@ -5,22 +5,44 @@ import {
   faWindowMinimize,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import isElectron from "is-electron";
+// import { IpcRenderer } from "electron";
+// const { ipcRenderer } = window.require("electron");
+// const ipc = ipcRenderer;
+
+// declare global {
+//   interface Window {
+//     ipcRenderer: IpcRenderer;
+//   }
+// }
 
 export default function Frame() {
-  // const ipc = window.require("electron").ipcRenderer;
   // const remote = window.require("electron").remote;
   // const currentWindow = remote.getCurrentWindow();
+  // const [isMaximized, setIsMaximized] = useState(false);
+  // const win = require("electron").remote.getCurrentWindow();
   const minimize = () => {
     // ipc.send("min");
     // currentWindow.minimize();
+    // win.minimize();
   };
   const maximize = () => {
     // ipc.send("max");
+    // setIsMaximized((prev) => !prev);
+    // isMaximized ? win.unmaximize() : win.maximize();
   };
   const close = () => {
     // ipc.send("closeApp");
     // currentWindow.close();
+    // win.close();
   };
+
+  useEffect(() => {
+    if (isElectron()) {
+    }
+  }, []);
+
   return (
     <Container>
       <span className="prevent-select"></span>
@@ -50,7 +72,7 @@ const Container = styled.div`
   font-size: 14px;
   /* -webkit-app-region: drag; */
   position: absolute;
-  z-index: 99;
+  z-index: 99999999;
 
   & > div {
     display: flex;
@@ -65,6 +87,7 @@ const Container = styled.div`
 
   & span {
     transition: all 0.15s;
+    text-shadow: 2px 2px 4px #000000c2;
   }
 
   & span:hover {

@@ -8,13 +8,14 @@ const GlobalStyles = createGlobalStyle`
   font-style: normal;
   font-display: swap;
   src: local("Pretendard Variable"),
-    url("../public/fonts/PretendardVariable.woff2") format("woff2-variations");
+    url("../build/fonts/PretendardVariable.woff2") format("woff2-variations");
 }
   html, body{
     margin: 0px;
     padding: 0px;
     font-family: "Pretendard Variable";
     overflow: hidden;
+    background-color: #F5F7FB;
   }
 
   div{
