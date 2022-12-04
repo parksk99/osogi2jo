@@ -72,7 +72,7 @@ Novelism Team은, 많은 사용자 각각의 취향과 웹 소설 분위기에 �
 
 - [SeongGyuPark](https://github.com/parksk99) - **Natural Language Processing** - <qkrtjdrb99@naver.com>
 - [DaeHyunKwon](https://github.com/Always0ne) - **Natural Language Processing** - <neoskyclad@naver.com>
-- [Junkyulee](https://github.com/Always0ne) - **Natural Language Processing** - <igun0423@naver.com>
+- [HyeonWooKim](https://github.com/qualificationalitated) - **Natural Language Processing** - <abc9548@naver.com>
 - [SeungminRyu](https://github.com/Always0ne) - **Backend Development** - <ojysep9987@gmail.com>
 - [Junkyulee](https://github.com/Always0ne) - **Frontend Development** - <igun0423@naver.com>
 
