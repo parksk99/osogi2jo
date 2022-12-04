@@ -4,14 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResponseDto {
-    private String result;
-
-//    @Builder
-//    public static class Content{
-//        private ArrayList<Multimap<String, Double>> ratio;
-//    }
+    private ArrayList<VideoInfoDto> contents;
 }
