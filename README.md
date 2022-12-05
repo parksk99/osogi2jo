@@ -49,7 +49,7 @@
 
 ## 🛒 Installing
 
-1. [다운로드 링크](https://drive.google.com/file/d/1WbvpRdNLm1Q0Mae65R5iwMX2UQgmEozf/view?usp=sharing)에서 Setup 파일 다운로드
+1. [다운로드 링크](https://drive.google.com/file/d/1dXn2StlhVDKARh8FPmXnGyB_1-d2hDfa/view?usp=sharing)에서 Setup 파일 다운로드
 2. Novelism 설치 및 실행
 3. 음악 취향 등록
 4. 웹 소설 감상
