@@ -5,16 +5,16 @@
 ## 🎉 Index
 
 - [웹 소설을 더 감각적으로 즐기는 방법, Novelism 🎧](#웹-소설을-더-감각적으로-즐기는-방법-novelism-🎧)
-  - [🎉Index](#🎉-index)
-  - [🎠 About Novelism](#🎠-about-novelism)
-  - [✨ Overview](#✨-overview)
-  - [🎊 Getting Started](#🎊-getting-started)
-  - [🛒 Installing](#🛒-installing)
-  - [🏆 Contributing](#🏆-contributing)
-  - [🕶 Team](#🕶-team)
-  - [🔎 Open Source](#🔎-open-source)
-  - [🎨 UI](#🎨-ui)
-  - [💸 License](#💸-license)
+  - [🎉 Index](#-index)
+  - [🎠 About Novelism](#-about-novelism)
+  - [✨ Overview](#-overview)
+  - [🎊 Getting Started](#-getting-started)
+  - [🛒 Installing](#-installing)
+  - [🏆 Contributing](#-contributing)
+  - [🕶 Team](#-team)
+  - [🔎 Open Source](#-open-source)
+  - [🎨 UI](#-ui)
+  - [💸 License](#-license)
 
 ## 🎠 About Novelism
 
