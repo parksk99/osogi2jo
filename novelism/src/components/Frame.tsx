@@ -47,7 +47,7 @@ export default function Frame() {
     <Container>
       <span className="prevent-select"></span>
       <div className="prevent-select">
-        <span className="btn" onClick={() => minimize()}>
+        {/* <span className="btn" onClick={() => minimize()}>
           <FontAwesomeIcon icon={faWindowMinimize} />
         </span>
         <span className="btn" onClick={() => maximize()}>
@@ -55,7 +55,7 @@ export default function Frame() {
         </span>
         <span className="btn" onClick={() => close()}>
           <FontAwesomeIcon icon={faXmark} />
-        </span>
+        </span> */}
       </div>
       <div className="drag" />
     </Container>

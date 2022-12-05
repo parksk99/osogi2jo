@@ -25,7 +25,7 @@ export default function MyNovel(props: novelProps) {
   const [progress, setProgress] = useState(0);
   const [genre, setGenre] = useState("");
   const [ratioArr, setRatioArr] = useState<Array<number>>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getMyGenre = () => {
     const myGenre = localStorage.getItem("taste");
