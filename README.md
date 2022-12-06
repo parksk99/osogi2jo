@@ -8,6 +8,7 @@
   - [🎉 Index](#-index)
   - [🎠 About Novelism](#-about-novelism)
   - [✨ Overview](#-overview)
+  - [🙋‍♂️ Demonstrate](#-demonstrate)
   - [🎊 Getting Started](#-getting-started)
   - [🛒 Installing](#-installing)
   - [🏆 Contributing](#-contributing)
@@ -24,8 +25,10 @@
 
 ## ✨ Overview
 
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=plastic-square&logo=TypeScript&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=plastic-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Electron-47848F?style=plastic-square&logo=Electron&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=plastic-square&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/Figma-F24E1E?style=plastic&logo=Figma&logoColor=white"/><br/>
-<img src="https://img.shields.io/badge/Django-092E20?style=plastic-square&logo=Django&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=plastic-square&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/Selenium-43B02A?style=plastic-square&logo=Selenium&logoColor=white"/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=plastic-square&logo=TypeScript&logoColor=white"/> <img src="https://img.shields.io/badge/Java-744e3b?style=plastic-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=plastic-square&logo=Python&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=plastic-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Electron-47848F?style=plastic-square&logo=Electron&logoColor=white"/> <img src="https://img.shields.io/badge/Django-092E20?style=plastic-square&logo=Django&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=plastic-square&logo=Spring Boot&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/Selenium-43B02A?style=plastic-square&logo=Selenium&logoColor=white"/> <img src="https://img.shields.io/badge/NGINX-009639?style=plastic-square&logo=NGINX&logoColor=white"/> <img src="https://img.shields.io/badge/Gunicorn-499848?style=plastic-square&logo=Gunicorn&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=plastic-square&logo=styled-components&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=plastic&logo=Amazon EC2&logoColor=white"/> <img src="https://img.shields.io/badge/Figma-F24E1E?style=plastic&logo=Figma&logoColor=white"/>
 
 > **현재 Tocsoda 플랫폼만 이용 가능합니다 :(**<br/>
 > 저작권 관련 스크래핑 문제로 인해 타 플랫폼 이용이 불가능합니다.<br/>
@@ -38,6 +41,11 @@
   - 감정어와 스크롤 영역을 비율로 구분
   - 각 감정어와 장르 취향에 맞는 음악을 분석
   - 사용자의 스크롤이 분위기가 반전되는 뷰포트에 닿았을 때, 자동으로 음악 전환
+  
+## 🙋‍♂️ Demonstrate
+- [아티스트 선택 및 선호 장르 분석 시현영상](https://www.youtube.com/watch?v=n-djHKWZwuw)
+- [웹 소설 플랫폼 이용 시현영상](https://www.youtube.com/watch?v=6eqqLBvENQU)
+- [사용자 텍스트본 입력 후 이용 시현영상](https://www.youtube.com/watch?v=mPmlnApK7ak&feature=youtu.be)
 
 ## 🎊 Getting Started
 
