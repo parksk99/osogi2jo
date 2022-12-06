@@ -20,6 +20,9 @@
     - [textreader.py](#textreaderpy)
     - [word.py](#wordpy)
     - [emotion.py](#emotionpy)
+  - [⚙ Backend](#-backend)
+    - [서버 아키텍쳐](#서버-아키텍쳐)
+    - [Server to Server Logic](#server-to-server-logic)
   - [🎨 UI](#-ui)
     - [시작 화면](#시작-화면)
     - [홈 화면](#홈-화면)
@@ -112,6 +115,10 @@
 - [KR Word Rank](https://pypi.org/project/krwordrank)
 - [knusl](https://github.com/park1200656/KnuSentiLex)
 - [Pretendard](https://github.com/orioncactus/pretendard)
+- [Nginx](https://github.com/nginx/nginx)
+- [Gunicorn](https://github.com/benoitc/gunicorn)
+- [Selenium](https://pypi.org/project/selenium/)
+- [Youtube API](https://developers.google.com/youtube/v3/getting-started?hl=ko)
 
 ## 🍕 감정 분석 실행 방법
 ```
@@ -152,6 +159,74 @@ keyword_detector.get_word_from_novel(texts, min_value)
 ``` python
 emtion_detector = Emotion()
 emotion_dectector.data_list("원하는 단어")
+```
+## 📡 Backend
+### 서버 아키텍쳐
+![qwer](https://user-images.githubusercontent.com/44975402/205934250-71cab45b-a5c7-4032-a5f9-6396d4c3849d.jpg)
+- Django : AWS EC2 배포 및 Nginx, Gunicorn 연동
+- SpringBoot : AWS EC2 배포 및 Nginx 연동
+
+### Server to Server Logic
+- SpringBoot 서버는 Client로부터 텍스트 분석 요청을 수신합니다.
+- Django 서버는 SpringBoot 서버로부터 소설 텍스트 혹은 소설 Url을 수신합니다.
+- Django 서버는 수신 받은 텍스트를 분석합니다.
+- Django 서버는 수신 받은 소설 Url과 selenium을 이용하여 소설 본문을 크롤링하여 분석합니다.
+- Django 서버는 분석이 끝난 내용을 SpringBoot 서버로 response 합니다.
+  - Django Response example
+```json
+[
+    {
+        "emotion": "슬픈",
+        "ratio": 25.0
+    },
+    {
+        "emotion": "제멋대로",
+        "ratio": 50.0
+    },
+    {
+        "emotion": "감사",
+        "ratio": 75.0
+    },
+    {
+        "emotion": "흡족한",
+        "ratio": 100.0
+    }
+]
+```
+- SpringBoot 서버는 Youtube Search API를 활용해 Django 서버로부터 수신받은 키워드를 활용해 음악을 검색합니다.
+- SpringBoot 서버는 검색된 결과를 토대로 Client에게 배경음악 데이터를 response합니다.
+  - SpringBoot Response example
+```json
+[
+    {
+        "emotion": "슬픈",
+        "ratio": 25.0,
+        "title": "𝑃𝑙𝑎𝑦𝑙𝑖𝑠𝑡 너무 슬플 때 울려고 들었던 노래",
+        "thumbnailPath": "https://i.ytimg.com/vi/U-2-uQ47sUutrRU/default.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=uQ47sUutrRU"
+    },
+    {
+        "emotion": "제멋대로",
+        "ratio": 50.0,
+        "title": "[Mood List] Cloud | 내 기분은 완전 제멋대로야 |  𝑷𝒍𝒂𝒚𝒍𝒊𝒔𝒕",
+        "thumbnailPath": "https://i.ytimg.com/vi/U-2-tqvlBK8/default.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=U-2-tqvlBK8"
+    },
+    {
+        "emotion": "감사",
+        "ratio": 75.0,
+        "title": "감사의 이별을 보낸다. / 슬픈 팝송 playlist",
+        "thumbnailPath": "https://i.ytimg.com/vi/my7sDhPoBJc/default.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=my7sDhPoBJc"
+    },
+    {
+        "emotion": "흡족한",
+        "ratio": 100.0,
+        "title": "[𝑷𝒍𝒂𝒚𝒍𝒊𝒔𝒕] 🕺🏻 내가 만들고도 흡족한‼️들으면 절로 웃음이 새어나오는 애정의 플리🤍",
+        "thumbnailPath": "https://i.ytimg.com/vi/X-1pJhR-w8k/default.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=X-1pJhR-w8k"
+    }
+]
 ```
 
 ## 🎨 UI
