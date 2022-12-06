@@ -21,7 +21,7 @@
     - [word.py](#wordpy)
     - [emotion.py](#emotionpy)
   - [⚙ Backend](#-backend)
-    - [서버 아키텍쳐](#서버-아키텍쳐)
+    - [Server Architecture](#서버-아키텍쳐)
     - [Server to Server Logic](#server-to-server-logic)
   - [🎨 UI](#-ui)
     - [시작 화면](#시작-화면)
@@ -161,7 +161,7 @@ emtion_detector = Emotion()
 emotion_dectector.data_list("원하는 단어")
 ```
 ## 📡 Backend
-### 서버 아키텍쳐
+### Server Architecture
 ![qwer](https://user-images.githubusercontent.com/44975402/205934250-71cab45b-a5c7-4032-a5f9-6396d4c3849d.jpg)
 - Django : AWS EC2 배포 및 Nginx, Gunicorn 연동
 - SpringBoot : AWS EC2 배포 및 Nginx 연동
