@@ -21,7 +21,7 @@
     - [word.py](#wordpy)
     - [emotion.py](#emotionpy)
   - [⚙ Backend](#-backend)
-    - [Server Architecture](#서버-아키텍쳐)
+    - [Server Architecture](#Server-Architecture)
     - [Server to Server Logic](#server-to-server-logic)
   - [🎨 UI](#-ui)
     - [시작 화면](#시작-화면)
